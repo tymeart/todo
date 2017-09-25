@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ToDoForm from './components/ToDoForm';
-import ToDoList from './components/ToDoList';
+import ToDoForm from './ToDoForm';
+import ToDoList from './ToDoList';
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class App extends Component {
     };
   }
 
-  handleSubmit = () => {
+  handleSubmit = (todo) => {
     // add todo to the array
     // this.setState({})
   }
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ToDoForm />
+        <ToDoForm handleSubmit={this.handleSubmit} />
         <ToDoList />
       </div>
     );
