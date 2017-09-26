@@ -13,10 +13,11 @@ class ToDoForm extends Component {
   }
 
   render() {
+    let todo = this.state.text;
     return (
       <form>
         <input type="text" value={this.state.text} onChange={this.handleInputChange}/>
-        <button onSubmit={this.handleSubmit}>Add</button>
+        <button onClick={this.props.handleSubmit.bind(this, todo)}>Add</button>
       </form>
     );
   }

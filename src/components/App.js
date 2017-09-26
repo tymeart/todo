@@ -10,16 +10,17 @@ class App extends Component {
     };
   }
 
-  handleSubmit = (todo) => {
-    // add todo to the array
-    // this.setState({})
+  handleSubmit = (todo, event) => {
+    event.preventDefault();
+    const newToDos = [...this.state.todos, todo];
+    this.setState({todos: newToDos});
   }
 
   render() {
     return (
       <div className="App">
         <ToDoForm handleSubmit={this.handleSubmit} />
-        <ToDoList />
+        <ToDoList todos={this.state.todos} />
       </div>
     );
   }
