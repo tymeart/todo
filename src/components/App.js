@@ -6,15 +6,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      inputText: '',
       todos: []
     };
   }
 
-  handleSubmit = (todo, event) => {
+  handleInputChange = (e) => {
+    this.setState({inputText: e.target.value});
+  }
+
+  handleSubmit = (task, event) => {
     event.preventDefault();
     const id = this.state.todos.length;
-    const newToDos = [...this.state.todos, {task: todo, id}];
-    this.setState({todos: newToDos});
+    const newToDos = [...this.state.todos, {task, id}];
+    this.setState({inputText: '', todos: newToDos});
   }
 
   handleDelete = (id) => {
@@ -25,7 +30,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ToDoForm handleSubmit={this.handleSubmit} />
+        <ToDoForm
+          handleInputChange={this.handleInputChange}
+          value={this.state.inputText}
+          handleSubmit={this.handleSubmit}
+        />
         <ToDoList
           todos={this.state.todos}
           handleDelete={this.handleDelete}
