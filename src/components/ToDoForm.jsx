@@ -4,7 +4,8 @@ class ToDoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ''
+      text: '',
+      id: 0
     };
   }
 

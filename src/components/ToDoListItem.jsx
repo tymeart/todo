@@ -2,7 +2,10 @@ import React from 'react';
 
 const ToDoListItem = (props) => {
   return (
-    <li>{props.todo}</li>
+    <li>
+      {props.todo.text}
+      <button>X</button>
+    </li>
   );
 };
 
