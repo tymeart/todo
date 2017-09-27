@@ -13,13 +13,13 @@ class App extends Component {
   handleSubmit = (todo, event) => {
     event.preventDefault();
     const id = this.state.todos.length;
-    const newToDos = [...this.state.todos, todo];
+    const newToDos = [...this.state.todos, {task: todo, id}];
     this.setState({todos: newToDos});
   }
 
   handleDelete = (id) => {
     const newToDos = this.state.todos.filter(todo => todo.id !== id);
-    console.log(newToDos)
+    this.setState({todos: newToDos});
   }
 
   render() {
